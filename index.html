@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mani's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="#">Mani</a>
+        </div>
+        <div class="navbar-menu">
+            <button class="nav-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h2>Hello, I'm</h2>
+            <h1 class="c-orange">MANI</h1>
+            <p>A web developer</p>
+            <a href="#contact" class="h-btn">Get In Touch</a>
+            
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="skills-content">
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <p>C, C++, Java</p>
+            </div>
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <p>DBMS, SQL</p>
+            </div>
+            <div class="skill-category">
+                <h3>Frameworks & Libraries</h3>
+                <p>Express.js, React.js</p>
+            </div>
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <p>Git, Postman</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+          <div class="heading text-center">
+              <small>What I've Built</small>
+              <h3>My Projects</h3>
+          </div>
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="project-card">
+                      <h4>MyFin Bank</h4>
+                      <p>A full-stack banking application developed using the MEAN stack and Java Spring Boot Microservices. Features include customer and admin functionalities, security measures, email notifications, and more.</p>
+                      <a href="https://github.com/manikantaindla/myfinbank" target="_blank">GitHub Repo</a>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="project-card">
+                      <h4>Weather Application</h4>
+                      <p>A responsive weather application using OpenWeatherMap API, providing real-time weather updates. It includes geolocation, API integration, and an intuitive UI.</p>
+                      <a href="https://github.com/manikantaindla/weatherapp" target="_blank">GitHub Repo</a>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="project-card">
+                      <h4>Portfolio Website</h4>
+                      <p>A personal portfolio website showcasing my skills, projects, and contact information. Built with responsive design, smooth animations, and modern UI/UX principles.</p>
+                      <a href="https://github.com/manikantaindla/portfolio" target="_blank">GitHub Repo</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Contact Me</h2>
+            <div class="contact-details">
+                <i class="fas fa-envelope"></i>
+                <p>email : maneekanta29@gmail.com</p>
+                <i class="fas fa-phone"></i>
+                <p>+91 9515309945</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" class="form-control" placeholder="Name" required>
+                <input type="email" class="form-control" placeholder="Email" required>
+                <textarea class="form-control" placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="c-btn">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="link-group">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">About</a>
+            </div>
+            <div class="social-links">
+                <button class="social-btn dribble">
+                    <i class="fab fa-dribbble"></i>
+                </button>
+                <button class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </button>
+                <button class="social-btn behance">
+                    <i class="fab fa-behance"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="btn-back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Show or hide back to top button
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('btn-back-to-top');
+            if (window.scrollY > 200) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll for navbar links
+        document.querySelectorAll('.navbar-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Filter projects
+        function filterSelection(category) {
+            const elements = document.querySelectorAll('.post');
+            elements.forEach(el => {
+                if (category === 'all') {
+                    el.style.display = 'block';
+                } else {
+                    el.classList.contains(category) ? el.style.display = 'block' : el.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
